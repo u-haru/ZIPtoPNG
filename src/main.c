@@ -31,6 +31,7 @@ uint32_t crc32(unsigned char *dat,size_t size,uint32_t crc) {
   }
 
   /* テーブルを用いてCRC32を計算する */
+  crc = ~crc;
   for (i = 0; i<size; i++) {
     crc = table[(crc ^ dat[i]) & 0xff] ^ (crc >> 8); /* 1バイト投入して更新する */
   }
@@ -103,8 +104,8 @@ int main(int argc,char* argv[]){
       fwrite(Content_type,4,1,fp);
       fwrite(Content_dat,Content_len,1,fp);
 
-      Content_crc32 = crc32(Content_type,4,UINT32_C(0xFFFFFFFF));
-      Content_crc32 = crc32(Content_dat,Content_len,~Content_crc32);
+      Content_crc32 = crc32(Content_type,4,0x0);
+      Content_crc32 = crc32(Content_dat,Content_len,Content_crc32);
 
       // printf("CRC:%x\n",Content_crc32);
       fwriteInt(fp,Content_crc32,4,'B');
