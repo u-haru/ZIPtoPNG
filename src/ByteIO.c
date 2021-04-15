@@ -102,7 +102,7 @@ unsigned char *readFile(char file[], unsigned int *Content_len) {
         exit(1);
     }
     *Content_len = ftell(fp);
-    unsigned char *Content_dat = (unsigned char *)malloc((size_t)Content_len);
+    unsigned char *Content_dat = (unsigned char *)malloc((size_t)*Content_len);
     if (Content_dat == NULL) {
         printf("malloc error");
         exit(1);
@@ -115,7 +115,7 @@ unsigned char *readFile(char file[], unsigned int *Content_len) {
         printf("fseek error");
         exit(1);
     }
-    fread(Content_dat, 1, (size_t)Content_len, fp);
+    fread(Content_dat, 1, (size_t)*Content_len, fp);
     fclose(fp);
     return Content_dat;
 }
