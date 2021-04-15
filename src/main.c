@@ -91,7 +91,7 @@ int main(int argc,char* argv[]){
 	  chunk_crc32 = freadInt(PNGfp,4,'B');
 
     if(memcmp(chunk_type,"IEND",4)== 0){
-      uint32_t start_offset = ftell(PNGfp)-4-chunk_len-4-4;//now-crc-data-type-len
+      uint32_t start_offset = ftell(PNGfp)-4-chunk_len;//now-crc-data
       // printf("offset:%x\n",start_offset);
       memcpy(Content_type,"IDAT",4);
 

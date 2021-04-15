@@ -29,12 +29,12 @@ void FixupZIP(unsigned char *Content_dat,unsigned int Content_len,unsigned int o
   while(size < size_cen){
     unsigned char *position = pos_cen + size;
     uint32_t LOC = readInt(position+ZIP_CENOFF,4,'L');
-    LOC += offset + 8;
+    LOC += offset;
     // printf("LOC:%x\n",LOC);
     writeInt(position + ZIP_CENOFF,LOC,4,'L');
 
     size += SIZE_ZIP_CEN + readInt(position+ZIP_CENNAM,2,'L') + readInt(position+ZIP_CENEXT,2,'L') + readInt(position+ZIP_CENCOM,2,'L');
   }
-  uint32_t zip_offset = pos_cen - Content_dat + offset + 8;
+  uint32_t zip_offset = pos_cen - Content_dat + offset;
   writeInt(pos_eocd + ZIP_ENDOFF,zip_offset,4,'L');
 }
