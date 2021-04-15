@@ -1,7 +1,11 @@
 #include <inttypes.h>
 #include <stdio.h>
+#include <memory.h>
+#include "ByteIO.h"
+
 unsigned char sig_CEN[4] = "PK\x01\x02";
 unsigned char sig_EOCD[4] = "PK\x05\x06";
+
 #define SIZE_ZIP_CEN 46 //CENの固定長部分のサイズ
 #define ZIP_CENNAM 28   //CEN内のファイル名サイズのoffset
 #define ZIP_CENEXT 30   //CEN内の拡張情報サイズのoffset

@@ -91,7 +91,7 @@ void set_sysendian() {
     }
 }
 
-unsigned char *readFile(char *file, unsigned int *Content_len) {
+unsigned char *readFile(char file[], unsigned int *Content_len) {
     FILE *fp;
     if ((fp = fopen(file, "rb")) == NULL) {
         printf("fopen error");

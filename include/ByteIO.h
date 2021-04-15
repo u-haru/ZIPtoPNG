@@ -1,6 +1,3 @@
-#include <inttypes.h>
-#include <stdio.h>
-
 uint32_t mask(unsigned int byte);
 
 uint32_t swap(uint32_t dat, size_t size);
