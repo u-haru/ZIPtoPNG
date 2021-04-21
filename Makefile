@@ -2,8 +2,8 @@
 SCode	 := c
 
 CC        = gcc
-CXXFLAGS  = -g -MMD -Wall -pipe -finput-charset=UTF-8 -fexec-charset=CP932
-LDFLAGS   = -lwinmm
+CXXFLAGS  = -g -MMD -Wall -pipe -finput-charset=UTF-8 -fexec-charset=CP932 -O2
+LDFLAGS   = -w -s
 LIBS      =
 INCLUDE   = -I./include -I/usr/include -I/mingw64/include
 TARGETS   = ZIPtoPNG.exe
